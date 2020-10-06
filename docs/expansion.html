@@ -40,19 +40,19 @@
         function setconfig(i) {
             i = (i + configs.length) % configs.length;
             const config = configs[i];
-            document.getElementById('label').innerHTML = config.label;
+            const label = config.label + ' (' + (i+1) + ' of ' + config.length + ')';
+            document.getElementById('label').innerHTML = label;
             for(let name in config.options) main.redefine(name, config.options[name]);
             return i;
         }
         let index = setconfig(0);
         document.getElementById('next').addEventListener('click', () => {
-            console.log('next');
             index = setconfig(index + 1);
         });
+        document.getElementById('prev').addEventListener('click', () => {
+            index = setconfig(index - 1);
+        });
         /* TODO:
-         - implement prev button
-         - add (1 of n) to label
-         - css to center label and allow overflow onto several lines
          - move configs to separate json?
          - make observable code reusable for other projects?
         */
