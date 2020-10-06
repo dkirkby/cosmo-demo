@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expanding Universe</title>
+    <title>Effects of expansion on light</title>
 </head>
 <body>
     <div style="display: flex">
@@ -29,12 +29,16 @@
         });
         const configs = [
             {
-                label: 'Introducing the scale factor',
-                options: {autoplay: false, ndot:5, center:2, nwaves:0}
+                label: 'Classical Doppler shift',
+                options: {autoplay: false, ndot:5, center:2, nwaves:20, emitspeed:0.35, comoving:true}
             },
             {
-                label: 'Expansion from a different center',
-                options: {autoplay: false, ndot:5, center:0, nwaves:0}
+                label: 'Cosmological Doppler shift',
+                options: {autoplay: false, ndot:5, center:2, nwaves:20, emitspeed:0, comoving:false}
+            },
+            {
+                label: 'Cosmological + Classical Doppler shifts',
+                options: {autoplay: false, ndot:5, center:2, nwaves:20, emitspeed:0.35, comoving:false}
             }
         ];
         function setconfig(i) {
