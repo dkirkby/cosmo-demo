@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Universe</title>
+</head>
+<body>
+    <div style="display: flex">
+        <div style="flex: 1">
+            <button id="prev" type="button">PREV</button>
+        </div>
+        <div style="flex: 2; font-size: 24px; text-align: center" id="label"></div>
+        <div style="flex: 1; text-align: right">
+            <button id="next" type="button">NEXT</button>
+        </div>
+    </div>
+    <div id="observablehq-b090d987">
+        <div class="observablehq-visualize"></div>
+        <div class="observablehq-viewof-frame"></div>
+      </div>
+      <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/@dkirkby/cosmicexpansion.js?v=3";
+        const main = (new Runtime).module(define, name => {
+          if (name === "visualize") return Inspector.into("#observablehq-b090d987 .observablehq-visualize")();
+          if (name === "viewof frame") return Inspector.into("#observablehq-b090d987 .observablehq-viewof-frame")();
+          if (name === "start") return {fulfilled(value) { }};
+        });
+        const configs = [
+            {
+                label: 'Introducing the scale factor',
+                options: {autoplay: false, ndot:5, center:2, nwaves:0}
+            },
+            {
+                label: 'Expansion from a different center',
+                options: {autoplay: false, ndot:5, center:0, nwaves:0}
+            }
+        ];
+        function setconfig(i) {
+            i = (i + configs.length) % configs.length;
+            const config = configs[i];
+            document.getElementById('label').innerHTML = config.label;
+            for(let name in config.options) main.redefine(name, config.options[name]);
+            return i;
+        }
+        let index = setconfig(0);
+        document.getElementById('next').addEventListener('click', () => {
+            console.log('next');
+            index = setconfig(index + 1);
+        });
+        /* TODO:
+         - implement prev button
+         - add (1 of n) to label
+         - css to center label and allow overflow onto several lines
+         - move configs to separate json?
+         - make observable code reusable for other projects?
+        */
+</script>
+</body>
+</html>
