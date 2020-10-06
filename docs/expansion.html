@@ -40,7 +40,7 @@
         function setconfig(i) {
             i = (i + configs.length) % configs.length;
             const config = configs[i];
-            const label = config.label + ' (' + (i+1) + ' of ' + config.length + ')';
+            const label = config.label + ' (' + (i+1) + ' of ' + configs.length + ')';
             document.getElementById('label').innerHTML = label;
             for(let name in config.options) main.redefine(name, config.options[name]);
             return i;
