@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Pie</title>
+</head>
+<body>
+    <div id="observablehq-bc195fd1">
+        <div class="observablehq-pie"></div>
+        <div class="observablehq-viewof-zpie"></div>
+      </div>
+      <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/@dkirkby/cosmoviz.js?v=3";
+        (new Runtime).module(define, name => {
+          if (name === "pie") return Inspector.into("#observablehq-bc195fd1 .observablehq-pie")();
+          if (name === "viewof zpie") return Inspector.into("#observablehq-bc195fd1 .observablehq-viewof-zpie")();
+        });
+      </script>
+</body>
+</html>
