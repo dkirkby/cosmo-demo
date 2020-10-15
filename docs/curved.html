@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curved Space Explorer</title>
+</head>
+<body>
+    <div class="chart"></div>
+    <div class="viewof-r1"></div>
+    <div class="viewof-r2"></div>
+    <div class="viewof-dθ"></div>
+    <div class="viewof-mode"></div>
+
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@dkirkby/curved-space.js?v=3";
+    (new Runtime).module(define, name => {
+    if (name === "chart") return Inspector.into(".chart")();
+    if (name === "viewof r1") return Inspector.into(".viewof-r1")();
+    if (name === "viewof r2") return Inspector.into(".viewof-r2")();
+    if (name === "viewof dθ") return Inspector.into(".viewof-dθ")();
+    if (name === "viewof mode") return Inspector.into(".viewof-mode")();
+    return ["base","vertices"].includes(name) || null;
+    });
+    </script>
+</body>
+</html>
