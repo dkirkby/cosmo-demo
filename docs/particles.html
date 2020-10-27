@@ -7,7 +7,9 @@
 </head>
 <body>
     <div class="renderer"></div>
+    <div class="densities"></div>
     <div class="templegend"></div>
+    <div class="viewof-frame"></div>
     <div class="viewof-displayoptions"></div>
     <div class="viewof-components"></div>
     <div class="viewof-dmtype"></div>
@@ -16,6 +18,8 @@
         import define from "https://api.observablehq.com/@dkirkby/cosmic-particles.js?v=3";
         (new Runtime).module(define, name => {
         if (name === "renderer") return Inspector.into(".renderer")();
+        if (name === "densities") return Inspector.into(".densities")();
+        if (name === "viewof frame") return Inspector.into(".viewof-frame")();
         if (name === "templegend") return Inspector.into(".templegend")();
         if (name === "viewof displayoptions") return Inspector.into(".viewof-displayoptions")();
         if (name === "viewof components") return Inspector.into(".viewof-components")();
