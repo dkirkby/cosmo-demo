@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of the Friedmann equation</title>
+</head>
+<body>
+    <div class="eps_vs_scale"></div>
+    <div class="viewof-showTotal"></div>
+    <div class="viewof-showCurvature"></div>
+    <div class="viewof-Or0"></div>
+    <div class="viewof-Om0"></div>
+    <div class="viewof-Ode0"></div>
+
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@dkirkby/model-universes.js?v=3";
+    (new Runtime).module(define, name => {
+        if (name === "eps_vs_scale") return Inspector.into(".eps_vs_scale")();
+        if (name === "viewof showTotal") return Inspector.into(".viewof-showTotal")();
+        if (name === "viewof showCurvature") return Inspector.into(".viewof-showCurvature")();
+        if (name === "viewof Or0") return Inspector.into(".viewof-Or0")();
+        if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
+        if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
+        return ["scale_vs_time","components"].includes(name) || null;
+    });
+    </script>
+</body>
+</html>
