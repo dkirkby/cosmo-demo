@@ -6,34 +6,32 @@
     <title>Solution of the Friedmann equation</title>
 </head>
 <body>
-    <div class="scale_vs_time"></div>
+    <div class="adotLabel"></div>
     <div class="viewof-avalue"></div>
-    <div class="viewof-showLines"></div>
+    <div class="scale_vs_time"></div>
     <div class="eps_vs_scale"></div>
-    <div class="viewof-showTotal"></div>
-    <div class="viewof-showCurvature"></div>
-    <div class="O0label"></div>
     <div class="viewof-Or0"></div>
     <div class="viewof-Om0"></div>
     <div class="viewof-Ode0"></div>
     <div class="viewof-H0"></div>
+    <div class="viewof-displayOptions"></div>
+    <div class="O0label"></div>
 
     <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
     import define from "https://api.observablehq.com/@dkirkby/model-universes.js?v=3";
     (new Runtime).module(define, name => {
-        if (name === "scale_vs_time") return Inspector.into(".scale_vs_time")();
-        if (name === "viewof avalue") return Inspector.into(".viewof-avalue")();
-        if (name === "viewof showLines") return Inspector.into(".viewof-showLines")();
-        if (name === "eps_vs_scale") return Inspector.into(".eps_vs_scale")();
-        if (name === "viewof showTotal") return Inspector.into(".viewof-showTotal")();
-        if (name === "viewof showCurvature") return Inspector.into(".viewof-showCurvature")();
-        if (name === "O0label") return Inspector.into(".O0label")();
-        if (name === "viewof Or0") return Inspector.into(".viewof-Or0")();
-        if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
-        if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
-        if (name === "viewof H0") return Inspector.into(".viewof-H0")();
-        return ["components"].includes(name) || null;
+      if (name === "adotLabel") return Inspector.into(".adotLabel")();
+      if (name === "viewof avalue") return Inspector.into(".viewof-avalue")();
+      if (name === "scale_vs_time") return Inspector.into(".scale_vs_time")();
+      if (name === "eps_vs_scale") return Inspector.into(".eps_vs_scale")();
+      if (name === "viewof Or0") return Inspector.into(".viewof-Or0")();
+      if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
+      if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
+      if (name === "viewof H0") return Inspector.into(".viewof-H0")();
+      if (name === "viewof displayOptions") return Inspector.into(".viewof-displayOptions")();
+      if (name === "O0label") return Inspector.into(".O0label")();
+      return ["components","model"].includes(name) || null;
     });
     </script>
 </body>
