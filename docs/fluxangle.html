@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flux and Angles in Cosmlogy</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="plot"></div>
+    <div>
+      <div class="viewof-iframe inline"></div>
+      <div class="now inline"></div>
+    </div>
+    <div class="viewof-zobs"></div>
+    <div>
+      <div class="viewof-Om0 inline"></div>
+      <div class="viewof-Ode0 inline"></div>
+      <span>&nbsp;:&nbsp;</span>
+      <div class="modelinfo inline"></div>
+    </div>
+    <div class="viewof-displayOptions"></div>
+
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@dkirkby/fluxangle.js?v=3";
+    (new Runtime).module(define, name => {
+      if (name === "plot") return Inspector.into(".plot")();
+      if (name === "viewof iframe") return Inspector.into(".viewof-iframe")();
+      if (name === "now") return Inspector.into(".now")();
+      if (name === "viewof zobs") return Inspector.into(".viewof-zobs")();
+      if (name === "modelinfo") return Inspector.into(".modelinfo")();
+      if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
+      if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
+      if (name === "viewof displayOptions") return Inspector.into(".viewof-displayOptions")();
+      return ["iemit","model","init"].includes(name) || null;
+    });
+    </script>
+</body>
+</html>
