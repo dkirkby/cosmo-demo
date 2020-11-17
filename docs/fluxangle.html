@@ -14,6 +14,7 @@
     </div>
     <div class="viewof-zobs"></div>
     <div>
+      <div class="setbenchmark inline"></div>
       <div class="viewof-Om0 inline"></div>
       <div class="viewof-Ode0 inline"></div>
       <span>&nbsp;:&nbsp;</span>
@@ -29,9 +30,10 @@
       if (name === "viewof iframe") return Inspector.into(".viewof-iframe")();
       if (name === "now") return Inspector.into(".now")();
       if (name === "viewof zobs") return Inspector.into(".viewof-zobs")();
-      if (name === "modelinfo") return Inspector.into(".modelinfo")();
+      if (name === "setbenchmark") return Inspector.into(".setbenchmark")();
       if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
       if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
+      if (name === "modelinfo") return Inspector.into(".modelinfo")();
       if (name === "viewof displayOptions") return Inspector.into(".viewof-displayOptions")();
       return ["iemit","model","init"].includes(name) || null;
     });
