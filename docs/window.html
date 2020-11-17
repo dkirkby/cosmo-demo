@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Window</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div>
+        <div class="view inline"></div>
+        <div class="hudf inline"></div>
+    </div>
+    <div>
+        <div class="viewof-ztype inline"></div>
+        <div class="zlegend inline"></div>
+    </div>
+    <div class="viewof-src_radius"></div>
+    <div class="viewof-zclip"></div>
+    <div class="viewof-displayOptions"></div>
+    <div>
+        <div class="setbenchmark inline"></div>
+        <div class="viewof-Om0 inline"></div>
+        <div class="viewof-Ode0 inline"></div>
+    </div>
+    <div class="viewof-structure"></div>
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@dkirkby/cosmicwindow.js?v=3";
+    (new Runtime).module(define, name => {
+      if (name === "hudf") return Inspector.into(".hudf")();
+      if (name === "view") return Inspector.into(".view")();
+      if (name === "viewof structure") return Inspector.into(".viewof-structure")();
+      if (name === "viewof ztype") return Inspector.into(".viewof-ztype")();
+      if (name === "zlegend") return Inspector.into(".zlegend")();
+      if (name === "viewof src_radius") return Inspector.into(".viewof-src_radius")();
+      if (name === "viewof zclip") return Inspector.into(".viewof-zclip")();
+      if (name === "viewof displayOptions") return Inspector.into(".viewof-displayOptions")();
+      if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
+      if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
+      if (name === "setbenchmark") return Inspector.into(".setbenchmark")();
+      return ["maxdist","model","init","grid_redshifts","random_redshifts"].includes(name) || null;
+    });
+    </script>
+</body>
+</html>
