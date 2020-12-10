@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weak Lensing</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="visualize"></div>
+
+    <div class="viewof-src_type inline boxed"></div>
+    <div class="viewof-src_shape inline boxed"></div>
+    <div class="viewof-src_size inline boxed"></div>
+
+    <div>
+        <div class="viewof-effects inline"></div>
+        <div class="viewof-shear_factor inline"></div>
+    </div>
+
+    <div class="viewof-lens_type inline boxed"></div>
+    <div class="viewof-lens_mass inline"></div>
+    <div class="viewof-lens_distance inline"></div>
+
+    <div>
+        <div class="setbenchmark inline"></div>
+        <div class="viewof-Om0 inline"></div>
+        <div class="viewof-Ode0 inline"></div>
+    </div>
+
+    <div class="sk_values"></div>
+
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@dkirkby/weaklens.js?v=3";
+    (new Runtime).module(define, name => {
+      if (name === "visualize") return Inspector.into(".visualize")();
+      if (name === "viewof src_type") return Inspector.into(".viewof-src_type")();
+      if (name === "viewof src_shape") return Inspector.into(".viewof-src_shape")();
+      if (name === "viewof src_size") return Inspector.into(".viewof-src_size")();
+      if (name === "viewof lens_type") return Inspector.into(".viewof-lens_type")();
+      if (name === "viewof lens_mass") return Inspector.into(".viewof-lens_mass")();
+      if (name === "viewof lens_distance") return Inspector.into(".viewof-lens_distance")();
+      if (name === "viewof effects") return Inspector.into(".viewof-effects")();
+      if (name === "viewof shear_factor") return Inspector.into(".viewof-shear_factor")();
+      if (name === "viewof Om0") return Inspector.into(".viewof-Om0")();
+      if (name === "viewof Ode0") return Inspector.into(".viewof-Ode0")();
+      if (name === "setbenchmark") return Inspector.into(".setbenchmark")();
+      if (name === "sk_values") return Inspector.into(".sk_values")();
+      return ["updating","sources","observed","lens","lensed","extended_lens","compact_lens","DL","DLS","NFW","SoftenedPointMass","model","DS","source_half_width","smax"].includes(name) || null;
+    });
+    </script>
+</body>
+</html>
