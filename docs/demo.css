@@ -1,3 +1,7 @@
 .inline {
     display: inline-block;
 }
+.boxed {
+    padding-left: 4px;
+    border: 1px solid #777;
+}
